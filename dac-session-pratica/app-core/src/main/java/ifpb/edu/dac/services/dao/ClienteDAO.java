@@ -17,12 +17,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
 
 @Stateless
-@Remote(value = Cliente.class)
 public class ClienteDAO implements InterfaceDAO {
     
     @Resource(name = "java:app/jdbc/dac-session")
