@@ -8,11 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
 import javax.sql.DataSource;
 
 import ifpb.edu.dac.domain.Produto;
 import ifpb.edu.dac.domain.Venda;
 
+@Stateless
+@Remote(Venda.class)
 public class VendaDAOImpl implements VendaDAO{
 	
 	@Resource(name = "java:app/jdbc/dac-session")
