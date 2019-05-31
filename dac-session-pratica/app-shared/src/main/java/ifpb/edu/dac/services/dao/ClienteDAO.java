@@ -14,6 +14,7 @@ public interface ClienteDAO {
     
     public void salvarCliente(Cliente cliente);
     public List<Cliente> listarTodos();
+    public Cliente pesquisarCPF(String cpf);
     public Cliente criarCliente(ResultSet result) throws SQLException;
     
 }
