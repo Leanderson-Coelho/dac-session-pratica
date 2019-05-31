@@ -6,6 +6,12 @@ public class Venda {
 	private Integer id;
 	private List<Produto> produtos;
 	private Cliente cliente;
+
+	public Venda(List<Produto> produtos, Cliente cliente) {
+		this.produtos = produtos;
+		this.cliente = cliente;
+	}
+
 	public Venda(Integer id, List<Produto> produtos, Cliente cliente) {
 		super();
 		this.id = id;
