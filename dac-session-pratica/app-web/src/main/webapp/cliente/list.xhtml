@@ -9,10 +9,13 @@
             
             <h:form>
                 <h:commandLink  class="btn-large waves-effect waves-light teal lighten-1" value="Novo Cliente" action="edit.xhtml?faces-redirect=true" />
-                 <h:commandLink  class="btn-large waves-effect waves-light teal lighten-1" value="Nova Venda" action="/venda/edit.xhtml?faces-redirect=true" />
+                <h:commandLink  class="btn-large waves-effect waves-light teal lighten-1" value="Nova Venda" action="/venda/edit.xhtml?faces-redirect=true" /><br></br><br></br> 
                 
-                <h:dataTable var="pessoa" value="#{controladorDePessoas.todasAsPessoas}"
+                <h:inputText value="Digite o CPF"  />
+                <h:commandLink class="btn-large waves-effect waves-light teal lighten-1" value="Pesquisar"/>
+                <h:dataTable  var="pessoa" value="#{controladorDePessoas.todasAsPessoas}"
                              class="striped highlight">
+                    
                     <h:column>
                         <f:facet name="header">CPF</f:facet>
                             #{pessoa.cpf.formatado()}
@@ -24,16 +27,16 @@
                     </h:column>
                     
                     <h:column>
-                        <h:commandButton value="x" action="#{controladorDePessoas.excluir(pessoa)}" 
+                        <h:commandButton value="Excluir" action="#{controladorDePessoas.excluir(pessoa)}" 
                                          class="btn-floating"/>
                     </h:column>
                     <h:column>
-                        <h:commandButton value="editar" action="#{controladorDePessoas.editar(pessoa)}" 
+                        <h:commandButton value="Editar" action="#{controladorDePessoas.editar(pessoa)}" 
                                          class="btn"/>
                     </h:column>
                 </h:dataTable>
             </h:form>
-            <h:
+            
         </ui:define>
     </ui:composition>
 </html>
