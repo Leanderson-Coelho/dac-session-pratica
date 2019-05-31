@@ -15,9 +15,15 @@ CREATE TABLE Produto(
 CREATE TABLE Venda(
 	id SERIAL,
 	id_cliente INT,
-	id_produto INT,
-	quantidade INT,
 	PRIMARY KEY (id),
-	FOREIGN KEY (id_cliente) REFERENCES Cliente(id),
-	FOREIGN KEY (id_produto) REFERENCES Produto(id)
+	FOREIGN KEY (id_cliente) REFERENCES Cliente(id)
+);
+
+CREATE TABLE ProdutoVenda(
+    id_produto INT,
+    id_venda INT,
+    id serial,
+    FOREIGN KEY (id_produto) REFERENCES Produto(id),
+    FOREIGN KEY (id_venda) REFERENCES Venda(id),
+    PTIMARY KEY (id) 
 );
