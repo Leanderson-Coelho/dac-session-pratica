@@ -22,55 +22,21 @@ import javax.sql.DataSource;
 
 @Stateless
 public class ClienteDAO implements InterfaceDAO {
-    
-    @Resource(name = "java:app/jdbc/dac-session")
-    private DataSource dataSource;
-    private Connection connection;
-    
-    @PostConstruct
-    public void init() {
-        try {
-            this.connection = this.dataSource.getConnection();
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
-        }
-    }
-    
-    /* Persiste o cliente no Banco */
-    public void salvarCliente(Cliente cliente){
-        String sql = "INSERT INTO Cliente (cpf, nome) VALUES(?,?) ";
-        try {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,cliente.getCpf());
-            statement.setString(2,cliente.getNome());
-            statement.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
-        }
-    }
-    
-    /* Listar todos os clientes do Banco */
-    public List<Cliente> listarTodos(){
-        try {
-            List<Cliente> lista = new ArrayList<>();
-            ResultSet result = connection
-                .prepareStatement("SELECT * FROM Cliente")
-                .executeQuery();
-            while (result.next()) {
-                lista.add(criarCliente(result));
-            }
-            return lista;
-        } catch (SQLException ex) {
-            return Collections.EMPTY_LIST;
-        }
+
+    @Override
+    public void salvarCliente(Cliente cliente) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    /* Criar o objeto Cliente a partir de um Result Set */   
-    public Cliente criarCliente(ResultSet result) throws SQLException {
-        String nome = result.getString("nome");
-        String cpf = result.getString("cpf");
-        int id = result.getInt("id");
-        return new Cliente(id,cpf,nome);
+    @Override
+    public List<Cliente> listarTodos() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Cliente criarCliente(ResultSet result) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+  
 }
