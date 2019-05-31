@@ -70,10 +70,15 @@ public class ClienteDAO implements InterfaceDAO {
     /* Criar o objeto Cliente a partir de um Result Set */
     @Override
     public Cliente criarCliente(ResultSet result) {
-        String nome = result.getString("nome");
-        String cpf = result.getString("cpf");
-        int id = result.getInt("id");
-        return new Cliente(id,cpf,nome);
+        try {
+            String nome = result.getString("nome");
+            String cpf = result.getString("cpf");
+            int id = result.getInt("id");
+            return new Cliente(id,cpf,nome);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
     }
     
   
