@@ -7,4 +7,3 @@ ENV POSTGRES_PASSWORD postgres
 ENV POSTGRES_DB dac-session
 COPY create.sql /docker-entrypoint-initdb.d/
 COPY insert.sql /docker-entrypoint-initdb.d/
-CMD ["/bin/sh"]
