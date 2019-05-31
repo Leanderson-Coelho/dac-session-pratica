@@ -5,26 +5,22 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="../WEB-INF/resources/template.xhtml">
+    <!--Página Venda edit-->
     <ui:define name="centro">
         <h:form id="formulario" >
-           <!-- <h:messages layout="list"/>
-            <h:inputText id="nome" value="{controladorDePessoas.pessoa.nome}" 
-                         class="campo"  validatorMessage="Resolva" >
-                <f:convertNumber for="nome" />
-            </h:inputText>
-            <h:inputText value="{controladorDePessoas.pessoa.cpf}"
-                         id="cpf" 
-                         converter="converter.cpf" 
-                         validator="validator.cpf" />
-            <h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}" 
+            <h:inputText value="Selecione os produtos que deseja abaixo" ></h:inputText>
+            <h:selectOneMenu >
+                <f:selectItems></f:selectItems>
+            </h:selectOneMenu>
+            <!--
+             <h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}" 
                              converter="converter.Dependente"
                              validator="validator.Dependente"
                              id="dep">
                 <f:selectItems value="{controladorDePessoas.listarTodosOsDependentes()}"
                                var="dep" itemLabel="{dep.nome}"  />
-            </h:selectOneMenu>-->
-           <h:commandButton  id="button-atualizar" class="btn-large waves-effect waves-light teal lighten-1" value="Atualizar" action="#{controladorDePessoas.atualizar()}"/>
-            <h:commandButton  id="button-salvar" class="btn-large waves-effect waves-light teal lighten-1" value="Salvar" action="#{controladorDePessoas.salvar()}"/>
+            -->
+            <h:commandButton  id="button-salvar" class="btn-large waves-effect waves-light teal lighten-1" value="Comprar"/>
         </h:form> 
 
     </ui:define>

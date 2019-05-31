@@ -7,12 +7,14 @@ package ifpb.edu.dac.services.dao;
 
 import ifpb.edu.dac.domain.Cliente;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
-public interface InterfaceDAO {
+public interface ClienteDAO {
     
     public void salvarCliente(Cliente cliente);
     public List<Cliente> listarTodos();
-    public Cliente criarCliente(ResultSet result);
+    public Cliente pesquisarCPF(String cpf);
+    public Cliente criarCliente(ResultSet result) throws SQLException;
     
 }
