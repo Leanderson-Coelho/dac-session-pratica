@@ -22,7 +22,7 @@
             <groupId>ifpb.edu.dac</groupId>
             <artifactId>dac-session-pratica-shared</artifactId>
             <version>1</version>
-        </dependency> 
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
