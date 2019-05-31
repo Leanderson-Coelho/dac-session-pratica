@@ -6,7 +6,6 @@
 package ifpb.edu.dac.services.dao;
 
 import ifpb.edu.dac.domain.Cliente;
-import ifpb.edu.dac.domain.Produto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,8 +22,6 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
 
-import com.sun.security.ntlm.Client;
-
 @Stateless
 @Remote(value = Cliente.class)
 public class ClienteDAOImpl implements ClienteDAO{
@@ -38,7 +35,7 @@ public class ClienteDAOImpl implements ClienteDAO{
         try {
             this.connection = this.dataSource.getConnection();
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(ClienteDAOImpl.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
     
@@ -52,7 +49,7 @@ public class ClienteDAOImpl implements ClienteDAO{
             statement.setString(2,cliente.getNome());
             statement.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ClienteDAO.class.getName()).log(Level.SEVERE,null,ex);
+            Logger.getLogger(ClienteDAOImpl.class.getName()).log(Level.SEVERE,null,ex);
         }
     }
 
@@ -71,6 +68,21 @@ public class ClienteDAOImpl implements ClienteDAO{
         } catch (SQLException ex) {
             return Collections.EMPTY_LIST;
         }
+    }
+    
+    /* Pesquisar cliente por CPF no Banco */
+    @Override
+    public Cliente pesquisarCPF(String cpf){
+        String sql = "SELECT * FROM Cliente WHERE cpf = " + cpf;
+        try {
+            ResultSet result = connection
+                    .prepareStatement(sql)
+                    .executeQuery();
+            return criarCliente(result);
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDAOImpl.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+        return null;
     }
 
     /* Criar o objeto Cliente a partir de um Result Set */
