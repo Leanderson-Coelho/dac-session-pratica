@@ -12,6 +12,13 @@ public class Produto {
 		this.descricao = descricao;
 		this.valor = valor;
 	}
+	public Produto(int id) {
+		super();
+		this.id = id;
+	}
+	public Produto() {
+		
+	}
 	public int getId() {
 		return id;
 	}

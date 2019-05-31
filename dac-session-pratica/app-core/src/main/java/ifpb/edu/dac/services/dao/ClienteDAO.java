@@ -6,6 +6,8 @@
 package ifpb.edu.dac.services.dao;
 
 import ifpb.edu.dac.domain.Cliente;
+import ifpb.edu.dac.domain.Produto;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,10 +19,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
+import javax.ejb.Remote;
 import javax.ejb.Stateless;
 import javax.sql.DataSource;
 
+import com.sun.security.ntlm.Client;
+
 @Stateless
+@Remote(value = Cliente.class)
 public class ClienteDAO implements InterfaceDAO {
 
     @Resource(name = "java:app/jdbc/dac-session")
@@ -69,7 +75,7 @@ public class ClienteDAO implements InterfaceDAO {
 
     /* Criar o objeto Cliente a partir de um Result Set */
     @Override
-    public Cliente criarCliente(ResultSet result) {
+    public Cliente criarCliente(ResultSet result) throws SQLException{
         String nome = result.getString("nome");
         String cpf = result.getString("cpf");
         int id = result.getInt("id");
