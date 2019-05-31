@@ -29,24 +29,3 @@
 
     </ui:define>
 </ui:composition>
-<!--
-<h:selectOneMenu value="{controladorDePessoas.pessoa.dependente}" 
-                 converter="converter.Dependente">
-    <f:selectItems value="{controladorDePessoas.listarTodosOsDependentes()}"
-                   var="dep" itemLabel="{de.uuid}" />
-</h:selectOneMenu>
-<h:commandButton value="salvar" action="#controladorDePessoas.salvar()}" rendered="{not controladorDePessoas.editando}"/>
--->
-
-<!-- conversation scoped
-if (conversation.isTransient()) {
-    conversation.setTimeout(1800000L);
-    conversation.begin();
-} 
-<f:metadata>
-    <f:event listener="{bean.beginConversation()}" type="preRenderView" />
-</f:metadata>
-<h:link outcome="/prox_pagina.xhtml" value="Pagina para Finalizar a Conversação">
-        <f:param name="cid" value="{bean.conversation.id}" />
-</h:link>
--->
