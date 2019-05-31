@@ -10,7 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-public interface InterfaceDAO {
+public interface ClienteDAO {
     
     public void salvarCliente(Cliente cliente);
     public List<Cliente> listarTodos();

@@ -27,7 +27,7 @@ import com.sun.security.ntlm.Client;
 
 @Stateless
 @Remote(value = Cliente.class)
-public class ClienteDAO implements InterfaceDAO {
+public class ClienteDAOImpl implements ClienteDAO{
 
     @Resource(name = "java:app/jdbc/dac-session")
     private DataSource dataSource;
@@ -81,6 +81,4 @@ public class ClienteDAO implements InterfaceDAO {
         int id = result.getInt("id");
         return new Cliente(id,cpf,nome);
     }
-    
-  
 }
