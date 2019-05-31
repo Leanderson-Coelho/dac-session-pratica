@@ -16,7 +16,7 @@ import ifpb.edu.dac.domain.Produto;
 import ifpb.edu.dac.domain.Venda;
 
 @Stateless
-@Remote(Venda.class)
+@Remote(VendaDAO.class)
 public class VendaDAOImpl implements VendaDAO{
 	
 	@Resource(name = "java:app/jdbc/dac-session")

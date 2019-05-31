@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 import ifpb.edu.dac.domain.Produto;
 
 @Stateless
-@Remote(value = Produto.class)
+@Remote(value = ProdutoDAO.class)
 public class ProdutoDAOImpl implements ProdutoDAO{
 	
 	@Resource(name = "java:app/jdbc/dac-session")
