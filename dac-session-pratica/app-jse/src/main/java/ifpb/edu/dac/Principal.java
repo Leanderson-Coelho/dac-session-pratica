@@ -1,6 +1,5 @@
 package ifpb.edu.dac;
 
-import ifpb.edu.dac.IFCalculadora;
 import javax.swing.JOptionPane;
 /**
  *
@@ -67,18 +66,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String nome = "java:global/dac-session-pratica-core/CalculadoraImpl";
-        
-        
-        IFCalculadora calculadora = new ServiceLocator().
-                lookup(nome, IFCalculadora.class);
-
-        int a = Integer.parseInt(jTextField1.getText());
-        int b = Integer.parseInt(jTextField2.getText());
-
-        int soma = calculadora.somar(a, b);
-
-        JOptionPane.showMessageDialog(this, soma);
+       
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
