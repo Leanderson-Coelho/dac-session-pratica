@@ -2,3 +2,5 @@
 /dac-session-pratica/app-jse/target/
 /dac-session-pratica/app-web/target/
 /dac-session-pratica/app-core/target/
+# User-specific stuff
+.idea/**/workspace.xml
