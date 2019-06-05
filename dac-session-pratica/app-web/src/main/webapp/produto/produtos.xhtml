@@ -8,28 +8,35 @@
         <ui:define name="centro">
             
             <form>
-                <h:outputLabel value="Busca"/>
+                <h:outputLabel value="Busca Produtos"/>
             <p/>
             <div>
-                <h:outputLabel value="Search term" />
-                <h:inputText value="" />
-                <h:commandButton value="Search" action="" />
+                <h:outputLabel value="Busque por descrição" />
+                <h:inputText id="busca" value="#{produtoBean.buscaString}"  />
+                <h:commandButton value="Search" action="#{produtoBean.buscaPorDescricao(produtoBean.buscaString)}" />
             </div>
             </form>
-            
+            <div>
             <h:form>
-                <h:dataTable>
+                <h:dataTable value="#{produtoBean.produtos}" var="pd">
                     <h:column>
-                        <f:facet name="Nome"></f:facet>
+                        <f:facet name="Id"></f:facet>
+                        <h:outputText value="#{pd.id}"/>
                     </h:column>
                     <h:column>
                         <f:facet name="Descrição"></f:facet>
+                        <h:outputText value="#{pd.descricao}"/>
                     </h:column>
                     <h:column>
-                        <h:commandButton action="" id="" value=""></h:commandButton>
+                        <f:facet name="Valor"></f:facet>
+                        <h:outputText value="#{pd.valor}"/>
+                    </h:column>
+                    <h:column>
+                        <h:commandButton action="#{produtoBean.editarProduto(pd)}" id="editarProduto" value="editar"></h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>
+            </div>
         </ui:define>
     </ui:composition>
 </html>

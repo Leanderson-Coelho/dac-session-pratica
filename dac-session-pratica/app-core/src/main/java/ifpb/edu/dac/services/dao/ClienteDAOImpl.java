@@ -23,7 +23,7 @@ import javax.ejb.Stateless;
 import javax.sql.DataSource;
 
 @Stateless
-@Remote(value = Cliente.class)
+@Remote(value = ClienteDAO.class)
 public class ClienteDAOImpl implements ClienteDAO{
 
     @Resource(name = "java:app/jdbc/dac-session")
