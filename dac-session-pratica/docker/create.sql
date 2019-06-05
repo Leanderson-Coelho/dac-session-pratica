@@ -1,7 +1,7 @@
 ﻿CREATE TABLE Cliente(
 	id SERIAL,
 	nome VARCHAR(20) NOT NULL,
-	cpf VARCHAR(15) NOT NULL,
+	cpf VARCHAR(11) NOT NULL,
 	PRIMARY KEY (id)
 );
 
@@ -27,3 +27,35 @@ CREATE TABLE ProdutoVenda(
     FOREIGN KEY (id_venda) REFERENCES Venda(id),
     PTIMARY KEY (id) 
 );
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
