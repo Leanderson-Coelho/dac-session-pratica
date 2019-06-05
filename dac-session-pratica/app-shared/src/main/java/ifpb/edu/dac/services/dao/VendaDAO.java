@@ -7,6 +7,8 @@ import ifpb.edu.dac.domain.Produto;
 import ifpb.edu.dac.domain.Venda;
 
 public interface VendaDAO {
-	public void nova(Venda venda) throws SQLException;
-	public List<Produto> listarProdutos(Venda venda) throws SQLException;
+	public void adicionar(Venda venda);
+	public void remover(Venda venda);
+	public List<Venda> listar();
+	public Venda buscar(int id);
 }

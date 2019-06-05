@@ -6,8 +6,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="../WEB-INF/resources/template.xhtml">
     <ui:define name="centro">
-       <h:form id="formulario" >
-            <!-- <h:messages layout="list"/>
+        <h:form id="formulario" >
+           <!-- <h:messages layout="list"/>
             <h:inputText id="nome" value="{controladorDePessoas.pessoa.nome}" 
                          class="campo"  validatorMessage="Resolva" >
                 <f:convertNumber for="nome" />
@@ -24,8 +24,7 @@
                                var="dep" itemLabel="{dep.nome}"  />
             </h:selectOneMenu>-->
            <h:commandButton  id="button-atualizar" class="btn-large waves-effect waves-light teal lighten-1" value="Atualizar" action="#{controladorDePessoas.atualizar()}"/>
-           <h:commandButton  id="button-salvar" class="btn-large waves-effect waves-light teal lighten-1" 
-                             value="Salvar" action="#{controladorDePessoas.salvar()}"/>
+            <h:commandButton  id="button-salvar" class="btn-large waves-effect waves-light teal lighten-1" value="Salvar" action="#{controladorDePessoas.salvar()}"/>
         </h:form> 
 
     </ui:define>

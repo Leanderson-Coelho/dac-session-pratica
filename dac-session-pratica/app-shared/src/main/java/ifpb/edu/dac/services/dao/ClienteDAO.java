@@ -12,9 +12,10 @@ import java.util.List;
 
 public interface ClienteDAO {
     
-    public void salvarCliente(Cliente cliente);
-    public List<Cliente> listarTodos();
-    public Cliente pesquisarCPF(String cpf);
-    public Cliente criarCliente(ResultSet result) throws SQLException;
-    
+    void salvarCliente(Cliente cliente);
+    List<Cliente> listarTodos();
+    Cliente pesquisarCPF(String cpf);
+    Cliente criarCliente(ResultSet result) throws SQLException;
+    void remover(Cliente cliente);
+    void atualizar(Cliente cliente);
 }
