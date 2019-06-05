@@ -3,5 +3,6 @@
 /dac-session-pratica/app-web/target/
 /dac-session-pratica/app-core/target/
 # User-specific stuff
+/dac-session-pratica/.idea/
 .idea
 .idea/**/workspace.xml
