@@ -75,6 +75,24 @@ public class ClienteDAOImpl implements ClienteDAO {
 		int id = result.getInt("id");
 		return new Cliente(id, cpf, nome);
 	}
+
+	@Override
+	public void removerCliente(Cliente cliente) throws SQLException {
+		String sql = "delete from cliente where cpf=?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, cliente.getCpf());
+		ps.executeUpdate();
+	}
+
+	@Override
+	public void atualizarCliente(Cliente cliente) throws SQLException {
+		String sql = "update cliente set nome=?, cpf=? where id=?";
+		PreparedStatement ps = connection.prepareStatement(sql);
+		ps.setString(1, cliente.getNome());
+		ps.setString(2, cliente.getCpf());
+		ps.setInt(3, cliente.getId());
+		ps.executeUpdate();
+	}
 	
 	
 }

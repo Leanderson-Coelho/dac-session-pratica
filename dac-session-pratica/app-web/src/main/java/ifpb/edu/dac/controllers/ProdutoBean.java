@@ -4,6 +4,7 @@ package ifpb.edu.dac.controllers;
 import ifpb.edu.dac.domain.Produto;
 import ifpb.edu.dac.services.dao.ProdutoDAO;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -13,7 +14,7 @@ import javax.inject.Named;
 @Named
 @RequestScoped
 public class ProdutoBean {
-    private List<Produto> produtos;
+    private List<Produto> produtos = new ArrayList<>();
     private Produto produto;
     private String descricao;
     
@@ -38,13 +39,13 @@ public class ProdutoBean {
         return null;
     }
     
-    public String todos() {
+    public List<Produto> todos() {
     	try {
 			produtos = service.listar();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-    	return null;
+    	return produtos;
     }
     
     public String novo() {
@@ -53,24 +54,21 @@ public class ProdutoBean {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+    	produto = null;
     	return null;
     }
     
-    public String remove() {
+    public String remove(Produto p) {
     	try {
-			service.remover(produto);
+			service.remover(p);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
     	return null;
     }
     
-    public String atualizar() {
-    	try {
-			service.atualizar(produto);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+    public String atribuir(Produto produto) {
+    	this.produto = produto;
     	return null;
     }
     
