@@ -13,27 +13,27 @@
                 
                 <h:inputText value="Digite o CPF"  />
                 <h:commandLink class="btn-large waves-effect waves-light teal lighten-1" value="Pesquisar"/>
-                <h:dataTable  var="clientes" value="#{ClienteBean.clientes}"
+                <h:dataTable  var="pessoa" value="#{controladorDePessoas.todasAsPessoas}"
                              class="striped highlight">
                     
                     <h:column>
                         <f:facet name="header">CPF</f:facet>
-                            #{clientes.cpf()}
+                            #{pessoa.cpf.formatado()}
                             <!--<h:outputText value="{pessoa.cpf}" converter="convert.cpf"/>-->
                     </h:column>
                     <h:column>
                         <f:facet name="header">Nome</f:facet>
-                            #{clientes.nome}
+                            #{pessoa.nome}
                     </h:column>
                     
                     <h:column>
-                        <h:commandButton value="Excluir" action="#{ClienteBean.exluir}" 
+                        <h:commandButton value="Excluir" action="#{controladorDePessoas.excluir(pessoa)}" 
                                          class="btn-floating"/>
                     </h:column>
-                    <!--<h:column>
-                        <h:commandButton value="Editar" action="#{Cliente.editar(pessoa)}" 
+                    <h:column>
+                        <h:commandButton value="Editar" action="#{controladorDePessoas.editar(pessoa)}" 
                                          class="btn"/>
-                    </h:column>-->
+                    </h:column>
                 </h:dataTable>
             </h:form>
 
