@@ -76,7 +76,6 @@ public class ClienteDAOImpl implements ClienteDAO {
 		return new Cliente(id, cpf, nome);
 	}
 
-	@Override
 	public void removerCliente(Cliente cliente) throws SQLException {
 		String sql = "delete from cliente where cpf=?";
 		PreparedStatement ps = connection.prepareStatement(sql);
@@ -84,7 +83,6 @@ public class ClienteDAOImpl implements ClienteDAO {
 		ps.executeUpdate();
 	}
 
-	@Override
 	public void atualizarCliente(Cliente cliente) throws SQLException {
 		String sql = "update cliente set nome=?, cpf=? where id=?";
 		PreparedStatement ps = connection.prepareStatement(sql);

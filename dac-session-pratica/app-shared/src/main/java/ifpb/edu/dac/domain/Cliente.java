@@ -2,8 +2,9 @@ package ifpb.edu.dac.domain;
 
 public class Cliente {
 	private int id;
-    private String nome;
-    private String cpf;
+        private String nome;
+        private String cpf;
+    
 	public Cliente(int id, String nome, String cpf) {
 		super();
 		this.id = id;

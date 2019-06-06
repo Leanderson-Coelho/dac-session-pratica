@@ -11,6 +11,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.sql.SQLException;
 import java.util.List;
 
 
@@ -30,27 +31,27 @@ public class ControladorDeCliente implements Serializable {
     private ClienteDAO clienteDAO;
 
 
-    public List<Cliente> getTodosOsClientes() {
+    public List<Cliente> getTodosOsClientes() throws SQLException {
         return clienteDAO.listarTodos();
     }
 
-    public String adicionar() {
+    public String adicionar() throws SQLException {
         this.getTodosOsClientes().add(cliente);
         return null;
     }
 
-    public String remover(Cliente cliente) {
-        this.clienteDAO.remover(cliente);
+    public String removerCliente (Cliente cliente) throws SQLException {
+        this.clienteDAO.removerCliente(cliente);
         return null;
     }
 
-    public String atualizar(Cliente cliente) {
-        this.clienteDAO.atualizar(cliente);
+    public String atualizarCliente(Cliente cliente) throws SQLException {
+        this.clienteDAO.atualizarCliente(cliente);
         return "cliente/list.xhtml";
     }
 
-    public String buscarCpf(String cpf) {
-        this.clienteDAO.pesquisarCPF(cpf);
+    public String pesquisarPorCPF(String cpf) throws SQLException {
+        this.clienteDAO.pesquisarPorCPF(cpf);
         return "cliente/edit.xhtml";
     }
 
