@@ -3,19 +3,19 @@ package ifpb.edu.dac.controllers;
 import ifpb.edu.dac.domain.Produto;
 import ifpb.edu.dac.services.dao.ProdutoDAO;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
+import javax.enterprise.context.SessionScoped;
 
 
-@RequestScoped
+@SessionScoped
 @Named
 public class ControladorDeProduto implements Serializable {
 
     private Produto produto;
-
+    private List<Produto> produtos;
     private String descricaoProduto;
 
     @EJB
@@ -47,9 +47,11 @@ public class ControladorDeProduto implements Serializable {
         return "produto/edit.xhtml";
     }
 
-    public List<Produto> getProdutosBuscados() throws SQLException {
-        return produtoDAO.buscarPorDescricao(descricaoProduto);
+    public List<Produto> buscaProdutoPorDescricao() throws SQLException{
+        produtos = this.produtoDAO.buscarPorDescricao(this.descricaoProduto);
+        return produtos;
     }
+    
 
     public Produto getProduto() {
         return produto;
@@ -66,5 +68,15 @@ public class ControladorDeProduto implements Serializable {
     public void setDescricaoProduto(String descricaoProduto) {
         this.descricaoProduto = descricaoProduto;
     }
+
+    public List<Produto> getProdutos() {
+        return produtos;
+    }
+
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
+    }
+    
+    
 }
 

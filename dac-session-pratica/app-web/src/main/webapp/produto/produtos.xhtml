@@ -11,14 +11,14 @@
                 <h:outputLabel value="Busca"/>
             <p/>
             <div>
-                <h:outputLabel value="Search term" />
-                <h:inputText value="" />
-                <h:commandButton value="Search" action="" />
+                <h:outputLabel value="" />
+                <h:inputText value="#{controladorDeProduto.descricaoProduto}" />
+                <h:commandButton value="Search" action="#{buscaProdutoPorDescricao()}" />
             </div>
             </form>
             
             <h:form>
-                <h:dataTable value ="#{controladorDeProduto.todosOsProdutos}" var="produto">
+                <h:dataTable value ="#{controladorDeProduto.produtos}" var="produto">
                     <h:column>
                         <f:facet name="header">Descrição</f:facet>
                         <h:outputText value="#{produto.descricao}"></h:outputText>
