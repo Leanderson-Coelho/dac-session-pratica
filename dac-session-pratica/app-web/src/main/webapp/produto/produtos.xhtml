@@ -18,15 +18,17 @@
             </form>
             
             <h:form>
-                <h:dataTable>
+                <h:dataTable value ="#{controladorDeProduto.todosOsProdutos}" var="produto">
                     <h:column>
-                        <f:facet name="Nome"></f:facet>
+                        <f:facet name="header">Descrição</f:facet>
+                        <h:outputText value="#{produto.descricao}"></h:outputText>
+                    </h:column>     
+                    <h:column>
+                        <f:facet name="header">Valor</f:facet>
+                        <h:outputText value="#{produto.valor}"></h:outputText>
                     </h:column>
                     <h:column>
-                        <f:facet name="Descrição"></f:facet>
-                    </h:column>
-                    <h:column>
-                        <h:commandButton action="" id="" value=""></h:commandButton>
+                        <h:commandButton action="#{controladorDeProduto.editar(produto)}" id="editar" value="editar"></h:commandButton>
                     </h:column>
                 </h:dataTable>
             </h:form>

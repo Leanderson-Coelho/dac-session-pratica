@@ -1,10 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package ifpb.edu.dac.controllers;
 
+package ifpb.edu.dac.controllers;
 import ifpb.edu.dac.domain.Produto;
 import ifpb.edu.dac.services.dao.ProdutoDAO;
 import javax.ejb.EJB;
@@ -13,11 +8,6 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.List;
-
-/**
- *
- * @author Raul Coelho
- */
 
 
 @RequestScoped
@@ -46,10 +36,15 @@ public class ControladorDeProduto implements Serializable {
         return null;
     }
 
-    public String editar(Produto produto) throws SQLException {
-        this.produto = produto;
+    public String atualizar(Produto produto) throws SQLException {
         this.produtoDAO.atualizar(this.produto);
+        this.produto = new Produto();
         return null;
+    }
+    
+    public String editar(Produto produto){
+        this.produto = produto;
+        return "produto/edit.xhtml";
     }
 
     public List<Produto> getProdutosBuscados() throws SQLException {
