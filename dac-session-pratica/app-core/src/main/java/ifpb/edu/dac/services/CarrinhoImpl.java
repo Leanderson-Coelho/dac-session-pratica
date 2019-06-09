@@ -51,6 +51,5 @@ public class CarrinhoImpl implements ICarrinho<Produto, Cliente> {
     @Remove
     public void checkout () {
         Venda venda = new Venda(produtos, cliente);
-        // TODO
     }
 }
